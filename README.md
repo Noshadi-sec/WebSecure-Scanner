@@ -7,6 +7,41 @@
 
 **WebSecure Scanner** is a comprehensive, professional-grade web application security testing suite designed for penetration testers, security researchers, and DevSecOps teams. Built entirely in PowerShell, it performs 33 different security tests covering the OWASP Top 10 and beyond.
 
+---
+
+## LEGAL DISCLAIMER
+
+**READ THIS CAREFULLY BEFORE USING THIS TOOL**
+
+This tool is provided for **EDUCATIONAL AND AUTHORIZED SECURITY TESTING PURPOSES ONLY**.
+
+### YOU MUST:
+- Only test applications **YOU OWN** or have **EXPLICIT WRITTEN PERMISSION** to test
+- Obtain proper authorization before testing any system
+- Comply with all applicable laws and regulations in your jurisdiction
+- Use this tool responsibly and ethically
+
+### YOU MUST NOT:
+- Test websites or applications without explicit authorization
+- Use this tool for illegal activities or unauthorized access
+- Cause harm, disruption, or damage to any system
+- Violate any applicable laws, terms of service, or computer misuse regulations
+
+### RESPONSIBILITY:
+**THE AUTHOR AND CONTRIBUTORS ARE NOT RESPONSIBLE FOR ANY MISUSE, DAMAGE, OR ILLEGAL ACTIVITIES CONDUCTED WITH THIS TOOL.**
+
+By using this software, you agree that:
+1. You are solely responsible for your actions
+2. You will only use this tool on systems you are authorized to test
+3. You understand that unauthorized access to computer systems is illegal
+4. The author disclaims all liability for any direct, indirect, incidental, or consequential damages
+
+**Unauthorized access to computer systems is illegal under laws such as the Computer Fraud and Abuse Act (CFAA) in the United States and similar legislation worldwide. Violations can result in criminal prosecution and civil liability.**
+
+**USE AT YOUR OWN RISK. YOU HAVE BEEN WARNED.**
+
+---
+
 ## Key Features
 
 ### Comprehensive Testing (33 Security Tests)
@@ -417,7 +452,7 @@ $VerbosePreference = "Continue"
 - **PortSwigger** - Web security research and techniques
 - **PowerShell Community** - Development support
 
-## 📸 Screenshots
+## Screenshots
 
 ### HTML Report Dashboard
 ![HTML Report](docs/images/html-report.png)
