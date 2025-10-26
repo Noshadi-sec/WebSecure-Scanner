@@ -1,0 +1,152 @@
+# .gitignore for WebSecure Scanner
+
+# ============================================================================
+# Scan Results and Reports
+# ============================================================================
+scan_results/
+reports/
+*.json
+*.html
+*.csv
+*.log
+*.txt
+
+# Keep example reports for documentation
+!docs/examples/*.json
+!docs/examples/*.html
+
+# ============================================================================
+# PowerShell
+# ============================================================================
+# Exclude compiled modules
+*.psm1.xml
+*.psd1.xml
+
+# Exclude debug outputs
+*.ps1.log
+
+# ============================================================================
+# Session and Authentication
+# ============================================================================
+# Never commit session cookies or credentials
+*.cookies
+*.session
+credentials.txt
+auth_tokens.txt
+.env
+
+# ============================================================================
+# Operating System Files
+# ============================================================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+# ============================================================================
+# IDE and Editor Files
+# ============================================================================
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json.example
+!.vscode/extensions.json.example
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# ============================================================================
+# Temporary and Backup Files
+# ============================================================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# ============================================================================
+# Development and Testing
+# ============================================================================
+# Test outputs
+test_results/
+test_reports/
+coverage/
+
+# Local configuration
+config.local.json
+settings.local.json
+
+# ============================================================================
+# Documentation Build Artifacts
+# ============================================================================
+docs/_build/
+docs/.doctrees/
+
+# ============================================================================
+# Security Testing Specific
+# ============================================================================
+# Payloads directory (if you create one for testing)
+payloads/custom/
+
+# Wordlists (too large for git)
+wordlists/
+*.txt.gz
+
+# Target-specific configs (may contain sensitive info)
+targets/
+target_configs/
+
+# ============================================================================
+# CI/CD
+# ============================================================================
+.github/workflows/secrets/
+
+# ============================================================================
+# Dependencies (if adding modules)
+# ============================================================================
+node_modules/
+packages/
+vendor/
+
+# ============================================================================
+# Miscellaneous
+# ============================================================================
+# Packaged releases
+*.zip
+*.tar.gz
+*.rar
+
+# Keep LICENSE and README
+!LICENSE
+!README.md
