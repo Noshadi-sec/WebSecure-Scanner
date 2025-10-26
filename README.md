@@ -500,6 +500,6 @@ $VerbosePreference = "Continue"
 
 ---
 
-** If you find this tool useful, please star the repository!**
+**If you find this tool useful, please star the repository!**
 
 **Made by security professionals, for security professionals.**
