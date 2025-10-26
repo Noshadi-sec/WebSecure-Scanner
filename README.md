@@ -1,4 +1,4 @@
-# 🛡️ WebSecure Scanner - Advanced Web Application Security Testing Suite
+# WebSecure Scanner - Advanced Web Application Security Testing Suite
 
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue.svg)](https://github.com/PowerShell/PowerShell)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
