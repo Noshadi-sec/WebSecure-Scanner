@@ -149,6 +149,9 @@ vendor/
 
 # Temporary setup/cleanup scripts
 prepare-for-github.ps1
+remove-emojis.ps1
+PUBLISHING_SUMMARY.md
+GITHUB_PUBLISHING_GUIDE.md
 
 
 # Keep LICENSE and README
