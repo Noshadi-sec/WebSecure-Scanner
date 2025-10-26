@@ -322,12 +322,6 @@ Use **EditThisCookie** (Chrome) or **Cookie-Editor** (Firefox) to export cookies
 - **Issue Tracker** - Severity-based vulnerability classification
 - **Report Generator** - Multi-format output (JSON, HTML, CSV)
 
-### Code Statistics
-- **7,585 lines** of PowerShell code
-- **33 security test modules**
-- **50+ vulnerability detection patterns**
-- **15+ exploitation proof-of-concepts**
-
 ##  Documentation
 
 - [**Authentication Guide**](AUTHENTICATION_GUIDE.md) - How to enable authenticated testing
@@ -348,35 +342,6 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for deta
 ##  License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-### Why MIT?
--  Free for commercial and personal use
--  Modify and distribute freely
--  No warranty or liability (as-is basis)
--  Only requires attribution
-
-##  Key Differentiators
-
-### vs. Commercial Scanners (Burp Suite, Acunetix)
--  **Free and Open Source**
--  **No license fees or limitations**
--  **Customizable and extensible**
--  Fewer features than enterprise tools
--  No GUI (command-line only)
-
-### vs. Other Open Source Scanners (OWASP ZAP, Nikto)
--  **Native Windows support** (PowerShell)
--  **Exploitation proof-of-concepts** (not just detection)
--  **Authenticated testing built-in**
--  **Beautiful HTML reports**
--  Not as mature as 10+ year old projects
--  Smaller community
-
-### vs. Web Vulnerability Scanners (WPScan, SQLMap)
--  **Comprehensive** (33 tests, not single-purpose)
--  **All-in-one solution** (no tool chaining needed)
--  **Easy to use** (one command to scan)
--  Less specialized than single-purpose tools
 
 ##  Benchmarks
 
