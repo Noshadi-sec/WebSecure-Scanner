@@ -16,16 +16,16 @@
 This tool is provided for **EDUCATIONAL AND AUTHORIZED SECURITY TESTING PURPOSES ONLY**.
 
 ### YOU MUST:
-- Only test applications **YOU OWN** or have **EXPLICIT WRITTEN PERMISSION** to test
-- Obtain proper authorization before testing any system
-- Comply with all applicable laws and regulations in your jurisdiction
-- Use this tool responsibly and ethically
+- **✓** Only test applications **YOU OWN** or have **EXPLICIT WRITTEN PERMISSION** to test
+- **✓** Obtain proper authorization before testing any system
+- **✓** Comply with all applicable laws and regulations in your jurisdiction
+- **✓** Use this tool responsibly and ethically
 
 ### YOU MUST NOT:
-- Test websites or applications without explicit authorization
-- Use this tool for illegal activities or unauthorized access
-- Cause harm, disruption, or damage to any system
-- Violate any applicable laws, terms of service, or computer misuse regulations
+- **✗** Test websites or applications without explicit authorization
+- **✗** Use this tool for illegal activities or unauthorized access
+- **✗** Cause harm, disruption, or damage to any system
+- **✗** Violate any applicable laws, terms of service, or computer misuse regulations
 
 ### RESPONSIBILITY:
 **THE AUTHOR AND CONTRIBUTORS ARE NOT RESPONSIBLE FOR ANY MISUSE, DAMAGE, OR ILLEGAL ACTIVITIES CONDUCTED WITH THIS TOOL.**
@@ -45,27 +45,27 @@ By using this software, you agree that:
 ## Key Features
 
 ### Comprehensive Testing (33 Security Tests)
--  **Authentication & Session Management** - Session fixation, logout bypass, JWT tampering
--  **Authorization Flaws** - IDOR (Insecure Direct Object References), privilege escalation
--  **CSRF Protection** - Token detection + **exploit attempts** with proof-of-concept
--  **XSS Detection** - Reflected, Stored, DOM-based
--  **SQL Injection** - Error-based, blind, time-based detection
--  **Security Headers** - CSP, HSTS, X-Frame-Options, etc.
--  **File Upload Security** - RCE testing, MIME bypass, path traversal
--  **Parameter Tampering** - Mass assignment, privilege escalation via JSON injection
--  **Information Disclosure** - Sensitive files, API documentation, secrets in JS
+- **Authentication & Session Management** - Session fixation, logout bypass, JWT tampering
+- **Authorization Flaws** - IDOR (Insecure Direct Object References), privilege escalation
+- **CSRF Protection** - Token detection + **exploit attempts** with proof-of-concept
+- **XSS Detection** - Reflected, Stored, DOM-based
+- **SQL Injection** - Error-based, blind, time-based detection
+- **Security Headers** - CSP, HSTS, X-Frame-Options, etc.
+- **File Upload Security** - RCE testing, MIME bypass, path traversal
+- **Parameter Tampering** - Mass assignment, privilege escalation via JSON injection
+- **Information Disclosure** - Sensitive files, API documentation, secrets in JS
 - **TLS/HTTPS Configuration** - Certificate validation, redirect enforcement
 - **Access Control** - Broken authentication, anonymous access testing
--**API Security** - CORS, REST endpoint discovery, GraphQL testing
+- **API Security** - CORS, REST endpoint discovery, GraphQL testing
 - **Infrastructure** - Subdomain enumeration, WAF detection, open redirects
 
 ### Advanced Capabilities
--  **Authenticated Testing** - Session replay for testing protected endpoints
--  **Exploit Proof-of-Concept** - Not just detection, actual exploitation attempts
--  **Multiple Report Formats** - JSON, HTML, CSV outputs
--  **Aggressive Mode** - Deep testing with configurable request limits
--  **Baseline Comparison** - Track security posture changes over time
--  **External Target Support** - Test any website with proper authorization
+- **Authenticated Testing** - Session replay for testing protected endpoints
+- **Exploit Proof-of-Concept** - Not just detection, actual exploitation attempts
+- **Multiple Report Formats** - JSON, HTML, CSV outputs
+- **Aggressive Mode** - Deep testing with configurable request limits
+- **Baseline Comparison** - Track security posture changes over time
+- **External Target Support** - Test any website with proper authorization
 
 ## Prerequisites
 
@@ -134,7 +134,20 @@ Unblock-File -Path .\security_test2.ps1
 ```
 **Output**: HTML + JSON + CSV reports with exploitation proofs, ~20-30 minutes
 
-### Example 3: Regression Testing
+### Example 3: Full Comprehensive Scan (Recommended)
+```powershell
+.\security_test2.ps1 `
+    -site "https://your-authorized-site.com" `
+    -Mode "Aggressive" `
+    -MaxRequests 2000 `
+    -ConfirmAuthorization "I am authorized to test your-authorized-site.com" `
+    -ForceExternal `
+    -htmlReport `
+    -outputDir ".\scan_results"
+```
+**Output**: Complete security assessment with HTML report, all 33 tests, exploitation attempts
+
+### Example 4: Regression Testing
 ```powershell
 # First scan (baseline)
 .\security_test2.ps1 -site "https://example.com" -Mode "Normal" -outputDir ".\baseline"
@@ -148,13 +161,81 @@ Unblock-File -Path .\security_test2.ps1
 ```
 **Output**: Highlights new issues, resolved issues, and severity changes
 
-### Example 4: API Testing
+### Example 5: API Testing
 ```powershell
 .\security_test2.ps1 `
     -site "https://api.example.com" `
     -SessionCookie "Authorization: Bearer eyJhbGc..." `
     -Mode "Aggressive"
 ```
+
+## Scan Modes Explained
+
+### Passive Mode
+- **Purpose**: Reconnaissance only, no active exploitation
+- **Tests**: Header analysis, information disclosure, configuration review
+- **Impact**: Read-only, minimal traffic
+- **Use When**: Initial assessment, production systems, limited authorization
+- **Requirements**: Only `-site` parameter needed
+
+**Basic Command:**
+```powershell
+.\security_test2.ps1 -site "https://example.com" -Mode "Passive"
+```
+
+**Complete Command (with reporting):**
+```powershell
+.\security_test2.ps1 `
+    -site "https://your-site.com" `
+    -Mode "Passive" `
+    -htmlReport `
+    -outputDir ".\scan_results"
+```
+
+### Normal Mode (Default)
+- **Purpose**: Balanced testing with safe exploitation attempts
+- **Tests**: All 33 tests with conservative payloads
+- **Impact**: Moderate traffic, safe for most environments
+- **Use When**: Standard security assessments, staging environments
+- **Requirements**: Use `-ConfirmAuthorization` for external sites
+
+**Basic Command:**
+```powershell
+.\security_test2.ps1 -site "https://example.com" -Mode "Normal"
+```
+
+**Complete Command (with all features):**
+```powershell
+.\security_test2.ps1 `
+    -site "https://your-authorized-site.com" `
+    -Mode "Normal" `
+    -MaxRequests 1000 `
+    -ConfirmAuthorization "I am authorized to test your-authorized-site.com" `
+    -ForceExternal `
+    -htmlReport `
+    -outputDir ".\scan_results"
+```
+
+### Aggressive Mode (Recommended for Full Testing)
+- **Purpose**: Comprehensive deep testing with extensive payloads
+- **Tests**: All 33 tests with maximum coverage and exploitation POCs
+- **Impact**: High traffic (up to MaxRequests), thorough but intensive
+- **Use When**: Penetration testing, dedicated test environments, authorized assessments
+- **Requirements**: MUST use `-ConfirmAuthorization` and `-ForceExternal` for external sites
+
+**Complete Command (Recommended):**
+```powershell
+.\security_test2.ps1 `
+    -site "https://your-authorized-site.com" `
+    -Mode "Aggressive" `
+    -MaxRequests 2000 `
+    -ConfirmAuthorization "I am authorized to test your-authorized-site.com" `
+    -ForceExternal `
+    -htmlReport `
+    -outputDir ".\scan_results"
+```
+
+**Note**: Aggressive mode may trigger WAF alerts and generate significant logs. Ensure you have proper authorization and notify the system owner.
 
 ##  Command-Line Parameters
 
@@ -263,15 +344,15 @@ Importable into Excel, Jira, or ticketing systems
 
 ##  Security & Ethics
 
-###  LEGAL WARNING
+### Legal Warning
 
 **This tool is designed for authorized security testing only.**
 
--  **DO**: Test applications you own or have written permission to test
--  **DO**: Use in bug bounty programs with proper scope
+- **DO**: Test applications you own or have written permission to test
+- **DO**: Use in bug bounty programs with proper scope
 - **DO**: Use in professional penetration testing engagements
--  **DON'T**: Test websites without explicit authorization
--  **DON'T**: Use for malicious purposes
+- **DON'T**: Test websites without explicit authorization
+- **DON'T**: Use for malicious purposes
 
 **Unauthorized testing may be illegal in your jurisdiction.**
 
@@ -334,16 +415,16 @@ Use **EditThisCookie** (Chrome) or **Cookie-Editor** (Firefox) to export cookies
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ### Ways to Contribute
--  Report bugs and false positives
--  Suggest new security tests
--  Improve documentation
--  Submit pull requests with fixes/features
+- Report bugs and false positives
+- Suggest new security tests
+- Improve documentation
+- Submit pull requests with fixes/features
 
-##  License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-##  Benchmarks
+## Benchmarks
 
 ### Test Coverage Comparison
 
@@ -405,31 +486,20 @@ $VerbosePreference = "Continue"
 - [ ] Real-time reporting dashboard
 - [ ] Team collaboration features
 
-##  Support
+## Support
 
 - **Issues**: [GitHub Issues](https://github.com/Noshadi-sec/WebSecure-Scanner/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/Noshadi-sec/WebSecure-Scanner/discussions)
 - **Security Vulnerabilities**: Please report privately via GitHub Security Advisories
 
-##  Acknowledgments
+## Acknowledgments
 
 - **OWASP Foundation** - Security testing methodology
 - **PortSwigger** - Web security research and techniques
 - **PowerShell Community** - Development support
 
-## Screenshots
-
-### HTML Report Dashboard
-![HTML Report](docs/images/html-report.png)
-
-### Console Output
-![Console Output](docs/images/console-output.png)
-
-### Vulnerability Details
-![Vulnerability Details](docs/images/vulnerability-details.png)
-
 ---
 
-** If you find this tool useful, please star the repository!**
+**⭐ If you find this tool useful, please star the repository!**
 
 **Made by security professionals, for security professionals.**

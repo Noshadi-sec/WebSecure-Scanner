@@ -147,6 +147,10 @@ vendor/
 *.tar.gz
 *.rar
 
+# Temporary setup/cleanup scripts
+prepare-for-github.ps1
+
+
 # Keep LICENSE and README
 !LICENSE
 !README.md

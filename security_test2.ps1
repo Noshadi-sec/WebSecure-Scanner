@@ -9,7 +9,7 @@
 
 param(
     [Parameter(Mandatory=$false)]
-    [string]$site = "https://canifly.it",
+    [string]$site = "https://example.com",
     
     # renamed from $verbose to avoid conflict with PowerShell's built-in -Verbose common parameter
     [Parameter(Mandatory=$false)]
