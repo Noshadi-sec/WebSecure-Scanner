@@ -5,7 +5,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/Noshadi-sec/WebSecure-Scanner.svg)](https://github.com/Noshadi-sec/WebSecure-Scanner/releases)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**WebSecure Scanner** is a comprehensive, professional-grade web application security testing suite designed for penetration testers, security researchers, and DevSecOps teams. Built entirely in PowerShell, it performs 33 different security tests covering the OWASP Top 10 and beyond.
+**WebSecure Scanner** is a professional-grade web application security testing suite designed for penetration testers, security researchers, and DevSecOps teams. Built entirely in PowerShell, it performs 33 different security tests covering the OWASP Top 10 and beyond.
 
 ---
 
